@@ -1,0 +1,203 @@
+// Header ############################
+header {
+    position: relative;
+    color: $greyText;
+    z-index: 3;
+}
+
+.headerMain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+}
+
+.headerWrap {
+    position: relative;
+    padding: 50px 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include media("<=desktop") {
+        padding-top: 75px;
+        align-items: center;
+    }
+    @include media("<tablet") {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    @include media("<lg-phone") {
+        padding-top: 65px;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.logo {
+    &.extended {
+        display: flex;
+    }
+    @include media("<lg-phone") {
+        img {
+            height: 30px;
+        }
+    }
+}
+
+.logoExtra {
+    display: inline-block;
+    color: $main;
+    font-size: 38px;
+    line-height: 1.1;
+    @include media("<lg-phone") {
+        font-size: 19px;
+        line-height: 1.2;
+    }
+}
+
+.mainNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contactBox {
+    display: flex;
+    align-items: center;
+    *:not(:first-child) {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    .headerFb {
+        font-size: 24px;
+        &:hover {
+            color: $acentActive;
+        }
+    }
+    >a {
+        transition: all 200ms linear;
+        &:not(:last-child):hover {
+            color: rgb(211, 211, 211);
+        }
+    }
+    .dotSeparator {
+        &::before {
+            font-size: inherit;
+            color: inherit;
+        }
+    }
+    @include media("<=desktop") {
+        position: absolute;
+        top: 35px;
+        right: 0;
+    }
+    @include media("<=tablet") {
+        width: 100%;
+        justify-content: space-between;
+        top: 20px;
+        .contactHidden {
+            display: none;
+        }
+        .dotSeparator {
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+.languages {
+    display: flex;
+    align-items: center;
+    li {
+        margin-left: 2px;
+    }
+    a {
+        font-weight: 700;
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 8px;
+        transition: all 250ms linear;
+        &:hover {
+            background: $greyBgAlt;
+            color: $greyText;
+        }
+        &.active {
+            background: $accentRed;
+            color: #fff;
+        }
+    }
+}
+
+.navigation {
+    ul {
+        display: flex;
+        justify-content: flex-end;
+    }
+    li {
+        margin-left: 15px;
+    }
+    a {
+        display: inline-block;
+        font-size: 18px;
+        transition: all 200ms linear;
+        color: $acentActive;
+        &:hover {
+            color: $accentRed;
+        }
+        &.active {
+            color: $accentRed;
+            border-bottom: solid 2px $accentRed;
+        }
+    }
+    .mainNavList {
+        a {
+            color: #fff;
+            @include media("<=lg-phone") {
+                color: $acentActive;
+            }
+        }
+        a:hover {
+            color: rgb(180, 180, 180);
+        }
+    }
+    @include media("<=tablet") {
+        padding-top: 15px;
+        li:nth-child(2) {
+            margin-left: 0;
+        }
+    }
+    @include media("<lg-phone") {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        padding-top: 0;
+        transition: left 250ms ease-in-out;
+        ul {
+            flex-direction: column;
+            align-items: center;
+        }
+        li {
+            width: 100%;
+            margin-left: 0;
+        }
+        a {
+            font-size: 24px;
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            color: $acentActive;
+            background: $greyBg;
+            border-bottom: 1px solid #fff;
+            color: $acentActive;
+            &.active {
+                border-bottom: 1px solid #fff;
+            }
+        }
+    }
+}
